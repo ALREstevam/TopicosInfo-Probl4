@@ -1,6 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
  
+/*SOBRE
+	existe um vetor que armazena o valor das cartas do topo do monte dos jogadores
+		os índices do vetor correspondem aos jogadores
+		
+
+   existe um vetor que armazena o tamanho dos montes dos jogadores
+   	   os índices do vetor correspondem aos jogadores
+   	   
+    existe um vetor que armazena quais cartas estão na área de descarte
+    	os índices do vetor indicam o valor da carta
+    	os valores de cada elemento indicam se a carta está ou não na área de descarte
+    		baralho[x] = 0 -> a carta x não está no monte
+    		baralho[x] = 1 -> a carta x está no monte 
+
+
+*/
+
+
+
+
+
+
+
 
 //Encontrar maior valor em um vetor
 int maximo (int *v, int n) {
@@ -21,24 +44,44 @@ void zeraVetor (int *v, int n) {
     for (i = 0; i < n; i++) v[i] = 0;
 }
  
+//pos = busca (carta, topos, J, jogador);
 int busca (int x, int *v, int n, int jogador) {
     int i;
      
+ 
+	//Busca nos montes de jogadores do início até o jogador anterior ao atual
     for (i = 0; i < jogador; i++){
 		if (v[i] == x){
 		 	 return i;
 		}
 	} 
 	
-    for (i = jogador+1; i < n; i++) if (v[i] == x) {
+	//Busca nos montes de jogadores depois do jogador atual
+    for (i = jogador+1; i < n; i++) {
+		if (v[i] == x) {
+			return i;
+		}
+	}   
+    return i;
+    
+     
+}
+
+	//Para percorrer o vetor inteiro procurando e desconsiderar o jogador atual
+	int busca_teste (int x, int *v, int n, int jogador){
+		int i;
+		for(i = 0; i < n; i++){
+			if(v[i] == x){
+				if(i != jogador){
+					return i;
+				}
+			}
+		}
 		return i;
 	}
-         
-    return i;
-}
  
 int main () {
-    int N, J;//Número de cartas, Número de jogafores
+    int N, J;//Número de cartas, Número de jogadores
     int i, jogador, carta, m, pos;
     
     
@@ -59,7 +102,8 @@ int main () {
         zeraVetor (baralho, 13);
         zeraVetor (montes, J);
         zeraVetor (topos, J);
- 
+
+ 	   
         jogador = 0;//Jogador da vez
          
          
@@ -74,7 +118,8 @@ int main () {
 				baralho[carta-1] = 0;	//Removendo indicador de que a carta está no monte de descarte
             }
             else {
-                pos = busca (carta, topos, J, jogador);
+                pos = busca (carta, topos, J, jogador);//Busca carta da vez no topo do monte de outros jogadores
+				pos = busca_teste(carta, topos, J, jogador);
                 
                 // Achou a carta no topo do monte de outro jogador
                 if (pos < J) { 
@@ -91,7 +136,6 @@ int main () {
                     }
                     else {//Não achou a carta em nenhum lugar
                         baralho[carta-1] = 1;//Coloca o indicador de que a carta existe no monte de descarte
-                    
                         jogador = (jogador + 1) % J;// próximo jogador
                     }
                 }
@@ -108,7 +152,8 @@ int main () {
         for (i = 0; i < J; i++)
             if (montes[i] == m) printf ("Jogador: %d ", i+1); //printf ("%d ", i+1);
         printf ("\n");
-         
+	
+    
         scanf ("%d%d", &N, &J);
     }
      
