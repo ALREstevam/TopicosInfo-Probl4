@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Layout>
+	<Files>
+		<File Name="main.c" Top="No" Tabpos="4" TopLine="1">
+			<Cursor Line="17" Column="1"/>
+		</File>
+		<File Name="problema" Top="No" Tabpos="5" TopLine="9">
+			<Cursor Line="18" Column="1"/>
+		</File>
+	</Files>
+</Layout>
