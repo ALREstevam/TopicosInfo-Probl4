@@ -2,7 +2,7 @@
 <Project>
 	<Libs Value=""/>
 	<Flags Value=""/>
-	<Target Value="Solução completa.exe"/>
+	<Target Value="SolucaoComComentarios.exe"/>
 	<CommandLine Value=""/>
 	<CompilerOptions Value="-Wall -s"/>
 	<DeleteObjectsBefore Value="Yes"/>
@@ -15,6 +15,5 @@
 	<AppType Value="CONSOLE"/>
 	<Files>
 		<File Name="main.c"/>
-		<File Name="Estrutura do algorítmo"/>
 	</Files>
 </Project>

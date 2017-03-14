@@ -2,7 +2,7 @@
 <Project>
 	<Libs Value=""/>
 	<Flags Value=""/>
-	<Target Value="Solução compacta.exe"/>
+	<Target Value="SolucaoCodigo.exe"/>
 	<CommandLine Value=""/>
 	<CompilerOptions Value="-Wall -s"/>
 	<DeleteObjectsBefore Value="Yes"/>
