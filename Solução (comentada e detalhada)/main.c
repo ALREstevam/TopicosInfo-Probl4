@@ -8,7 +8,7 @@
 		os índices do vetor correspondem aos jogadores
 		
 
-   Existe um vetor que armazena o tamanho dos montes dos jogadores
+    Existe um vetor que armazena o tamanho dos montes dos jogadores
    	   os índices do vetor correspondem aos jogadores
    	   
     Existe um vetor que armazena quais cartas estão na área de descarte

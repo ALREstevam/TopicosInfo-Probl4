@@ -15,5 +15,6 @@
 	<AppType Value="CONSOLE"/>
 	<Files>
 		<File Name="main.c"/>
+		<File Name="Estrutura do algorítmo"/>
 	</Files>
 </Project>
